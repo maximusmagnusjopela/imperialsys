@@ -12,5 +12,11 @@
   "Imperial Information Systems Corporation iwebsite"
   [& args]
   (let [{:keys [options arguments summary errors]} (parse-opts args cli-opts)]
+    (when errors
+      (doseq [e errors]
+        (println e))
+      (println "Supported options:")
+      (println summary)
+      (System/exit -1))
     (println options)))
 
