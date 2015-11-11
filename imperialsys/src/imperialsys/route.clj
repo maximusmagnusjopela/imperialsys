@@ -15,6 +15,6 @@
   (context "/products" []
     (GET "/" [] "products")
     (GET "/novown" [] "products/novown")
-    (GET "/datalinkapi" [] "products/datalinkapi"))A
+    (GET "/datalinkapi" [] "products/datalinkapi"))
   (route/not-found "404 - not found"))
 

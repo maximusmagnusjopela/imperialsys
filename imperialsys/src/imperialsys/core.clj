@@ -1,7 +1,8 @@
 (ns imperialsys.core
   (:gen-class)
   (:require [clojure.tools.cli :refer [parse-opts]]
-            [imperialsys.route :refer [imperial-routes]]))
+            [imperialsys.route :refer [imperial-routes]]
+            [ring.adapter.jetty :refer [run-jetty]]))
 
 (def cli-opts
   [["-p" "--port PORT" "Port number"
@@ -20,6 +21,7 @@
       (println summary)
       (System/exit -1))
     (let [{:keys [port]} options]
-      (println port))))
+      (run-jetty imperial-routes {:port port}))))
+
 
 
